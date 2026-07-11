@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmad Nur Aiman — Financial Fraud Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="net-bg"></canvas>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-mark">AN<span>A</span></a>
+    <button id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HOME -->
+<header id="home" class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow mono">FILE NO. AN-2026 · STATUS: ACTIVE</p>
+    <h1>Ahmad Nur Aiman</h1>
+    <p class="hero-role">Financial Fraud Analyst tracing money across payments, crypto &amp; risk systems.</p>
+    <p class="hero-sub">3+ years investigating fraud across fintech and global tech platforms — AML/CTF, transaction monitoring, KYC/EDD, chargebacks and crypto fraud detection. Currently building Python and AI-assisted tooling to catch what manual review misses.</p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn btn-primary">View the case history</a>
+      <a href="docs/Ahmad_Nur_Aiman_Resume.pdf" class="btn btn-ghost">Download résumé</a>
+    </div>
+  </div>
+  <div class="scroll-hint mono">SCROLL <span>↓</span></div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <p class="kicker mono">01 · ABOUT</p>
+    <h2>Following the trail money leaves behind</h2>
+    <div class="about-grid">
+      <p class="about-text">Every transaction leaves a trace — a timestamp, a device fingerprint, a pattern that doesn't quite fit. I spend my days reading those traces: investigating suspicious activity, tightening KYC/EDD checks, and building the frameworks that stop fraud before it scales.</p>
+      <p class="about-text">My background isn't the usual route into FinCrime — I trained in Biotechnology before moving into fraud operations — but the instinct is the same: observe carefully, test the hypothesis, trust the evidence. I'm now extending that instinct with Python, data analysis, and AI-assisted automation.</p>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><span class="stat-num mono">3+</span><span class="stat-label">Years in fraud &amp; risk</span></div>
+      <div class="stat"><span class="stat-num mono">22</span><span class="stat-label">Fraud scenarios mapped for CryptoExchanger launch</span></div>
+      <div class="stat"><span class="stat-num mono">2</span><span class="stat-label">Languages — Malay &amp; English</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section alt">
+  <div class="section-inner">
+    <p class="kicker mono">02 · EXPERIENCE</p>
+    <h2>Case history</h2>
+
+    <div class="case-file">
+      <div class="case-meta">
+        <span class="case-id mono">CASE / DERIV-01</span>
+        <span class="case-status status-active mono">ACTIVE</span>
+      </div>
+      <div class="case-head">
+        <h3>Financial Fraud Analyst</h3>
+        <span class="case-org">Deriv Services Sdn Bhd · Kuala Lumpur</span>
+      </div>
+      <span class="case-date mono">[Start date] — Present</span>
+      <ul class="case-list">
+        <li>Led the build-out of a crypto fraud prevention framework for the CryptoExchanger platform launch — a 15-slide awareness deck, a 22-scenario defensive workshop table tagged with the Rumsfeld Matrix, and Mermaid.js investigation flowcharts.</li>
+        <li>Designed and delivered investigation training materials and a HOD-level briefing to align leadership on crypto fraud typologies ahead of launch.</li>
+        <li>Built the business case for AMY-NORA, a proposed multi-agent AI framework to automate fraud investigation across Payops, Payments, CX and Task Force teams.</li>
+        <li>Run AML/CTF investigations, transaction monitoring, and KYC/Enhanced Due Diligence reviews to identify and escalate suspicious activity.</li>
+        <li>Manage chargeback and dispute cases end-to-end with Payments and CX teams, within SLA.</li>
+        <li>Detect and investigate crypto-fraud patterns across exchange and wallet activity.</li>
+      </ul>
+    </div>
+
+    <div class="case-file">
+      <div class="case-meta">
+        <span class="case-id mono">CASE / [PREV-EMPLOYER]</span>
+        <span class="case-status status-closed mono">CLOSED</span>
+      </div>
+      <div class="case-head">
+        <h3>[Previous role title]</h3>
+        <span class="case-org">[Previous company] · [Location]</span>
+      </div>
+      <span class="case-date mono">[Dates]</span>
+      <ul class="case-list">
+        <li>[Tell me the role, dates and 2–3 achievements and I'll drop them straight in — e.g. Centific.]</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="section-inner">
+    <p class="kicker mono">03 · PROJECTS</p>
+    <h2>Field work</h2>
+
+    <div class="project-grid">
+      <article class="project-card">
+        <div class="project-top">
+          <span class="case-id mono">EX / NUR-HUDA</span>
+          <span class="case-status status-active mono">ONGOING</span>
+        </div>
+        <h3>Nur Huda — Quran Learning Platform</h3>
+        <p>Full-stack platform for a Quran learning centre — public registration, QR-code generation, and an admin dashboard, wired to live Supabase data.</p>
+        <ul class="tag-list">
+          <li>Next.js 14</li><li>Supabase</li><li>Black / White / Emerald UI</li>
+        </ul>
+      </article>
+
+      <article class="project-card">
+        <div class="project-top">
+          <span class="case-id mono">EX / FRAUD-ML</span>
+          <span class="case-status status-active mono">IN PROGRESS</span>
+        </div>
+        <h3>Credit Card Fraud Detection</h3>
+        <p>Applied fraud-analytics project using the Kaggle Credit Card Fraud dataset — cleaning, exploratory analysis and classification modeling, published to GitHub.</p>
+        <ul class="tag-list">
+          <li>Python</li><li>Pandas</li><li>scikit-learn</li>
+        </ul>
+      </article>
+
+      <article class="project-card">
+        <div class="project-top">
+          <span class="case-id mono">EX / JURUS-L1</span>
+          <span class="case-status status-closed mono">COMPLETED</span>
+        </div>
+        <h3>JURUS Level 1 — Analyst Programme</h3>
+        <p>Hands-on cybersecurity challenge: deployed and hardened an Ubuntu server running Nextcloud on Docker, PostgreSQL and Nginx, with UFW/Fail2Ban and automated backups.</p>
+        <ul class="tag-list">
+          <li>Docker</li><li>PostgreSQL</li><li>Nginx</li><li>UFW / Fail2Ban</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="section alt">
+  <div class="section-inner">
+    <p class="kicker mono">04 · CERTIFICATIONS</p>
+    <h2>Credentials on file</h2>
+    <div class="cert-grid">
+      <div class="cert-row">
+        <span class="cert-name">Chainalysis Cryptocurrency Investigator (CCI)</span>
+        <span class="cert-tag mono">[status]</span>
+      </div>
+      <div class="cert-row">
+        <span class="cert-name">Certified Anti-Money Laundering Specialist (CAMS)</span>
+        <span class="cert-tag mono">PLANNED</span>
+      </div>
+      <div class="cert-row">
+        <span class="cert-name">Certified Fraud Examiner (CFE)</span>
+        <span class="cert-tag mono">PLANNED</span>
+      </div>
+      <div class="cert-row">
+        <span class="cert-name">B.Sc. (Hons) Biotechnology (Environmental Biology), IIUM</span>
+        <span class="cert-tag mono">2019</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact-section">
+  <div class="section-inner">
+    <p class="kicker mono">05 · CONTACT</p>
+    <h2>Open a case with me</h2>
+    <p class="contact-sub">Available for fraud &amp; risk roles across fintech, crypto and payments.</p>
+    <div class="contact-links">
+      <a href="mailto:your.email@example.com">your.email@example.com</a>
+      <a href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/your-handle" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="mono">© 2026 AHMAD NUR AIMAN · KUALA LUMPUR, MALAYSIA</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
