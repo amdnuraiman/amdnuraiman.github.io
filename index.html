@@ -63,63 +63,77 @@
 <section id="experience" class="section alt">
   <div class="section-inner">
     <p class="kicker mono">02 · EXPERIENCE</p>
-    <h2>Case history</h2>
-
-    <div class="case-file">
-      <div class="case-meta">
-        <span class="case-id mono">CASE / DERIV-01</span>
-        <span class="case-status status-active mono">ACTIVE</span>
+    <div class="section-head-row">
+      <h2>Case history</h2>
+      <div class="slider-controls">
+        <button class="slider-btn" id="case-prev" aria-label="Previous case">←</button>
+        <button class="slider-btn" id="case-next" aria-label="Next case">→</button>
       </div>
-      <div class="case-head">
-        <h3>Financial Fraud Analyst — Anti-Fraud Team</h3>
-        <span class="case-org">Deriv Services Sdn Bhd · Kuala Lumpur</span>
-      </div>
-      <span class="case-date mono">January 2025 — Present</span>
-      <ul class="case-list">
-        <li>Analyzed large datasets and transaction records using data mining, visualization, and internal dashboards to detect, investigate, and resolve suspicious financial activities, fraud, and money laundering cases.</li>
-        <li>Managed card processor chargeback cases and maintained fraud and chargeback ratios below 1% through proactive trend analysis and process optimization.</li>
-        <li>Performed KYC and Enhanced Due Diligence checks to identify high-risk users, prevent onboarding of fraudulent accounts, and ensure compliance with card scheme rules.</li>
-        <li>Led the build-out of a crypto fraud prevention framework for the CryptoExchanger platform launch — 15-slide awareness deck, 22-scenario defensive workshop (Rumsfeld Matrix), and Mermaid.js investigation flowcharts.</li>
-        <li>Built the business case for AMY-NORA, a proposed multi-agent AI system to automate fraud investigation across Payops, Payments, CX and Task Force teams.</li>
-        <li>Collaborated with Compliance, Risk, and Payment teams to refine fraud detection rules, automate processes, and reduce manual review workload.</li>
-      </ul>
     </div>
 
-    <div class="case-file">
-      <div class="case-meta">
-        <span class="case-id mono">CASE / CENTIFIC-01</span>
-        <span class="case-status status-closed mono">CLOSED</span>
+    <div class="slider-viewport" id="case-viewport">
+      <div class="slider-track" id="case-track">
+
+        <div class="case-file">
+          <div class="case-meta">
+            <span class="case-id mono">CASE / DERIV-01</span>
+            <span class="case-status status-active mono">ACTIVE</span>
+          </div>
+          <div class="case-head">
+            <h3>Financial Fraud Analyst — Anti-Fraud Team</h3>
+            <span class="case-org">Deriv Services Sdn Bhd · Kuala Lumpur</span>
+          </div>
+          <span class="case-date mono">January 2025 — Present</span>
+          <ul class="case-list">
+            <li>Analyzed large datasets and transaction records using data mining, visualization, and internal dashboards to detect, investigate, and resolve suspicious financial activities, fraud, and money laundering cases.</li>
+            <li>Managed card processor chargeback cases and maintained fraud and chargeback ratios below 1% through proactive trend analysis and process optimization.</li>
+            <li>Performed KYC and Enhanced Due Diligence checks to identify high-risk users, prevent onboarding of fraudulent accounts, and ensure compliance with card scheme rules.</li>
+            <li>Led the build-out of a crypto fraud prevention framework for the CryptoExchanger platform launch — 15-slide awareness deck, 22-scenario defensive workshop (Rumsfeld Matrix), and Mermaid.js investigation flowcharts.</li>
+            <li>Built the business case for AMY-NORA, a proposed multi-agent AI system to automate fraud investigation across Payops, Payments, CX and Task Force teams.</li>
+            <li>Collaborated with Compliance, Risk, and Payment teams to refine fraud detection rules, automate processes, and reduce manual review workload.</li>
+          </ul>
+        </div>
+
+        <div class="case-file">
+          <div class="case-meta">
+            <span class="case-id mono">CASE / CENTIFIC-01</span>
+            <span class="case-status status-closed mono">CLOSED</span>
+          </div>
+          <div class="case-head">
+            <h3>Fraud Analyst — Human Intelligence Team (Microsoft, NA Region)</h3>
+            <span class="case-org">Centific Global Solution (M) Sdn Bhd · Kuala Lumpur</span>
+          </div>
+          <span class="case-date mono">April 2022 — August 2024</span>
+          <ul class="case-list">
+            <li>Investigated alerts and suspicious activities in Microsoft Azure and M365 — identifying patterns of fraud, account takeover, and friendly fraud — with a monthly KPI of 1,500+ cases at ≤1% false positive and ≤10% false negative rates.</li>
+            <li>Conducted AML risk assessments, monitored transactions for potential money laundering, and reviewed matches against regulatory watchlists.</li>
+            <li>Prepared detailed investigation reports and presented case findings to stakeholders, driving improvements in fraud prevention strategies.</li>
+            <li>Coordinated with Compliance, Legal, and Risk teams on escalated cases to ensure adherence to Microsoft's global regulatory standards and GDPR compliance.</li>
+          </ul>
+        </div>
+
+        <div class="case-file">
+          <div class="case-meta">
+            <span class="case-id mono">CASE / THOTH-01</span>
+            <span class="case-status status-closed mono">CLOSED</span>
+          </div>
+          <div class="case-head">
+            <h3>Quality Analyst — Contract (TikTok / ByteDance Project)</h3>
+            <span class="case-org">Thoth AI Sdn Bhd · Kuala Lumpur</span>
+          </div>
+          <span class="case-date mono">October 2024 — December 2024</span>
+          <ul class="case-list">
+            <li>Conducted QA for AI-labelled datasets, reviewing 800–1,000 cases daily to ensure accuracy and reliability for surveillance-based machine learning models.</li>
+            <li>Developed and implemented quality control processes that reduced dataset annotation error rates by 15%.</li>
+            <li>Generated weekly quality reports for the project manager; reviewed new hit rules, delegated to team, and actioned improvement plans when member quality dropped.</li>
+            <li>Trained and mentored junior annotators on compliance and best practices in secure data labeling.</li>
+          </ul>
+        </div>
+
       </div>
-      <div class="case-head">
-        <h3>Fraud Analyst — Human Intelligence Team (Microsoft, NA Region)</h3>
-        <span class="case-org">Centific Global Solution (M) Sdn Bhd · Kuala Lumpur</span>
-      </div>
-      <span class="case-date mono">April 2022 — August 2024</span>
-      <ul class="case-list">
-        <li>Investigated alerts and suspicious activities in Microsoft Azure and M365 — identifying patterns of fraud, account takeover, and friendly fraud — with a monthly KPI of 1,500+ cases at ≤1% false positive and ≤10% false negative rates.</li>
-        <li>Conducted AML risk assessments, monitored transactions for potential money laundering, and reviewed matches against regulatory watchlists.</li>
-        <li>Prepared detailed investigation reports and presented case findings to stakeholders, driving improvements in fraud prevention strategies.</li>
-        <li>Coordinated with Compliance, Legal, and Risk teams on escalated cases to ensure adherence to Microsoft's global regulatory standards and GDPR compliance.</li>
-      </ul>
     </div>
 
-    <div class="case-file">
-      <div class="case-meta">
-        <span class="case-id mono">CASE / THOTH-01</span>
-        <span class="case-status status-closed mono">CLOSED</span>
-      </div>
-      <div class="case-head">
-        <h3>Quality Analyst — Contract (TikTok / ByteDance Project)</h3>
-        <span class="case-org">Thoth AI Sdn Bhd · Kuala Lumpur</span>
-      </div>
-      <span class="case-date mono">October 2024 — December 2024</span>
-      <ul class="case-list">
-        <li>Conducted QA for AI-labelled datasets, reviewing 800–1,000 cases daily to ensure accuracy and reliability for surveillance-based machine learning models.</li>
-        <li>Developed and implemented quality control processes that reduced dataset annotation error rates by 15%.</li>
-        <li>Generated weekly quality reports for the project manager; reviewed new hit rules, delegated to team, and actioned improvement plans when member quality dropped.</li>
-        <li>Trained and mentored junior annotators on compliance and best practices in secure data labeling.</li>
-      </ul>
-    </div>
+    <div class="slider-dots" id="case-dots"></div>
 
   </div>
 </section>
@@ -175,51 +189,77 @@
   <div class="section-inner">
     <p class="kicker mono">04 · CREDENTIALS</p>
     <h2>Credentials on file</h2>
+    <p class="cert-hint mono">TAP / HOVER A BADGE TO VERIFY</p>
     <div class="cert-cards">
 
-      <a href="https://verify.skilljar.com/c/fvbiqz5g9caz" target="_blank" rel="noopener" class="cert-card">
-        <div class="cert-card-top">
-          <span class="cert-icon">🔗</span>
-          <span class="cert-verify mono">VERIFY ↗</span>
+      <div class="cert-flip" tabindex="0">
+        <div class="cert-flip-inner">
+          <div class="cert-face cert-front">
+            <span class="cert-icon">🔗</span>
+            <div class="cert-front-name">Crypto Investigator<br>Crash Course</div>
+          </div>
+          <div class="cert-face cert-back">
+            <div class="cert-back-issuer">Skilljar</div>
+            <div class="cert-back-topic">Blockchain / Crypto Fraud</div>
+            <a href="https://verify.skilljar.com/c/fvbiqz5g9caz" target="_blank" rel="noopener" class="cert-back-link mono">VERIFY ↗</a>
+          </div>
         </div>
-        <div class="cert-card-name">Crypto Investigator Crash Course</div>
-        <div class="cert-card-issuer">Skilljar · Blockchain / Crypto Fraud</div>
-      </a>
-
-      <a href="https://verify.skilljar.com/c/zsh7tanas2wy" target="_blank" rel="noopener" class="cert-card">
-        <div class="cert-card-top">
-          <span class="cert-icon">🔗</span>
-          <span class="cert-verify mono">VERIFY ↗</span>
-        </div>
-        <div class="cert-card-name">AI Fluency Framework &amp; Foundations</div>
-        <div class="cert-card-issuer">Skilljar · Artificial Intelligence</div>
-      </a>
-
-      <a href="https://www.credly.com/badges/31cfc76e-72bb-4d49-8c09-df0278528647" target="_blank" rel="noopener" class="cert-card">
-        <div class="cert-card-top">
-          <span class="cert-icon">🏅</span>
-          <span class="cert-verify mono">VERIFY ↗</span>
-        </div>
-        <div class="cert-card-name">PCEP – Certified Entry-Level Python Programmer</div>
-        <div class="cert-card-issuer">Credly / Python Institute · [PCEP-30-02]</div>
-      </a>
-
-      <div class="cert-card cert-card-nodoc">
-        <div class="cert-card-top">
-          <span class="cert-icon">📊</span>
-          <span class="cert-tag mono">COMPLETED</span>
-        </div>
-        <div class="cert-card-name">Data Analytics Bootcamp</div>
-        <div class="cert-card-issuer">General Assembly · UKM PENJANA KPT-CAP, Jan 2022</div>
       </div>
 
-      <div class="cert-card cert-card-nodoc">
-        <div class="cert-card-top">
-          <span class="cert-icon">🎓</span>
-          <span class="cert-tag mono">2019</span>
+      <div class="cert-flip" tabindex="0">
+        <div class="cert-flip-inner">
+          <div class="cert-face cert-front">
+            <span class="cert-icon">🤖</span>
+            <div class="cert-front-name">AI Fluency Framework<br>&amp; Foundations</div>
+          </div>
+          <div class="cert-face cert-back">
+            <div class="cert-back-issuer">Skilljar</div>
+            <div class="cert-back-topic">Artificial Intelligence</div>
+            <a href="https://verify.skilljar.com/c/zsh7tanas2wy" target="_blank" rel="noopener" class="cert-back-link mono">VERIFY ↗</a>
+          </div>
         </div>
-        <div class="cert-card-name">B.Sc. (Hons) Biotechnology — Environmental Biology</div>
-        <div class="cert-card-issuer">International Islamic University Malaysia (IIUM)</div>
+      </div>
+
+      <div class="cert-flip" tabindex="0">
+        <div class="cert-flip-inner">
+          <div class="cert-face cert-front">
+            <span class="cert-icon">🏅</span>
+            <div class="cert-front-name">PCEP Python<br>Programmer</div>
+          </div>
+          <div class="cert-face cert-back">
+            <div class="cert-back-issuer">Credly / Python Institute</div>
+            <div class="cert-back-topic">[PCEP-30-02]</div>
+            <a href="https://www.credly.com/badges/31cfc76e-72bb-4d49-8c09-df0278528647" target="_blank" rel="noopener" class="cert-back-link mono">VERIFY ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-flip" tabindex="0">
+        <div class="cert-flip-inner">
+          <div class="cert-face cert-front">
+            <span class="cert-icon">📊</span>
+            <div class="cert-front-name">Data Analytics<br>Bootcamp</div>
+          </div>
+          <div class="cert-face cert-back">
+            <div class="cert-back-issuer">General Assembly</div>
+            <div class="cert-back-topic">UKM PENJANA KPT-CAP · Jan 2022</div>
+            <span class="cert-back-link mono">COMPLETED</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-flip" tabindex="0">
+        <div class="cert-flip-inner">
+          <div class="cert-face cert-front">
+            <span class="cert-icon">🎓</span>
+            <div class="cert-front-name">B.Sc. (Hons)<br>Biotechnology</div>
+          </div>
+          <div class="cert-face cert-back">
+            <div class="cert-back-issuer">IIUM</div>
+            <div class="cert-back-topic">Environmental Biology</div>
+            <span class="cert-back-link mono">2019</span>
+          </div>
+        </div>
       </div>
 
     </div>
