@@ -179,5 +179,298 @@
 </footer>
 
 <script src="script.js"></script>
+
+<!-- ASK AIMAN CHATBOT -->
+<div id="chat-bubble" onclick="toggleChat()" title="Ask Aiman">
+  <span id="bubble-icon">💬</span>
+</div>
+
+<div id="chat-window">
+  <div id="chat-header">
+    <div id="chat-header-left">
+      <div id="chat-avatar">AA</div>
+      <div>
+        <div id="chat-name">Ask Aiman</div>
+        <div id="chat-status"><span id="status-dot"></span>Online</div>
+      </div>
+    </div>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+
+  <div id="chat-messages">
+    <div class="msg msg-bot">
+      <div class="msg-bubble">Hey! I'm Aiman's AI assistant 👋<br>Ask me anything about his background, experience, or projects — in English or BM, up to you.</div>
+      <div class="msg-suggestions">
+        <button onclick="quickAsk('What fraud tools do you use?')">Fraud tools?</button>
+        <button onclick="quickAsk('Tell me about your experience')">Experience?</button>
+        <button onclick="quickAsk('Why should I hire Aiman?')">Why hire?</button>
+        <button onclick="quickAsk('Ceritakan pasal projek kau')">Projek?</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="chat-input-row">
+    <input id="chat-input" type="text" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter')sendMsg()" />
+    <button id="chat-send" onclick="sendMsg()">↑</button>
+  </div>
+</div>
+
+<style>
+#chat-bubble{
+  position:fixed; bottom:28px; right:28px; z-index:999;
+  width:56px; height:56px; border-radius:50%;
+  background:linear-gradient(135deg,#3457E8,#14C7B4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:24px; cursor:pointer;
+  box-shadow:0 4px 20px rgba(52,87,232,0.5);
+  transition:transform 0.2s;
+}
+#chat-bubble:hover{transform:scale(1.08);}
+
+#chat-window{
+  position:fixed; bottom:96px; right:28px; z-index:998;
+  width:340px; height:480px;
+  background:#0C1B3D; border:1px solid rgba(150,180,255,0.2);
+  border-radius:16px; display:none; flex-direction:column;
+  overflow:hidden; box-shadow:0 16px 48px rgba(0,0,0,0.5);
+  font-family:'Inter',sans-serif;
+}
+#chat-window.open{display:flex;}
+
+#chat-header{
+  padding:14px 16px; background:#10224A;
+  border-bottom:1px solid rgba(150,180,255,0.15);
+  display:flex; align-items:center; justify-content:space-between;
+}
+#chat-header-left{display:flex; align-items:center; gap:10px;}
+#chat-avatar{
+  width:36px; height:36px; border-radius:50%;
+  background:linear-gradient(135deg,#3457E8,#14C7B4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:12px; font-weight:700; color:#fff;
+}
+#chat-name{font-size:14px; font-weight:600; color:#EAF0FB;}
+#chat-status{font-size:11px; color:#14C7B4; display:flex; align-items:center; gap:4px;}
+#status-dot{width:6px; height:6px; border-radius:50%; background:#14C7B4; display:inline-block;}
+#chat-close{background:none; border:none; color:#92A3CC; font-size:16px; cursor:pointer; padding:4px;}
+#chat-close:hover{color:#EAF0FB;}
+
+#chat-messages{
+  flex:1; overflow-y:auto; padding:14px 12px;
+  display:flex; flex-direction:column; gap:10px;
+  scrollbar-width:thin; scrollbar-color:rgba(150,180,255,0.2) transparent;
+}
+
+.msg{display:flex; flex-direction:column; max-width:88%;}
+.msg-bot{align-self:flex-start;}
+.msg-user{align-self:flex-end;}
+.msg-bubble{
+  padding:10px 13px; border-radius:12px;
+  font-size:13px; line-height:1.55;
+}
+.msg-bot .msg-bubble{
+  background:#10224A; color:#CBD6EE;
+  border:1px solid rgba(150,180,255,0.15);
+  border-bottom-left-radius:4px;
+}
+.msg-user .msg-bubble{
+  background:linear-gradient(135deg,#1B2C86,#3457E8);
+  color:#fff; border-bottom-right-radius:4px;
+}
+.msg-suggestions{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;}
+.msg-suggestions button{
+  font-size:11px; padding:4px 9px; border-radius:20px;
+  background:rgba(52,87,232,0.15); color:#14C7B4;
+  border:1px solid rgba(20,199,180,0.3); cursor:pointer;
+  font-family:'Inter',sans-serif; transition:background 0.2s;
+}
+.msg-suggestions button:hover{background:rgba(20,199,180,0.2);}
+
+.msg-typing .msg-bubble{color:#92A3CC; font-style:italic;}
+
+#chat-input-row{
+  padding:10px 12px; border-top:1px solid rgba(150,180,255,0.15);
+  display:flex; gap:8px; background:#0C1B3D;
+}
+#chat-input{
+  flex:1; background:#10224A; border:1px solid rgba(150,180,255,0.2);
+  border-radius:20px; padding:8px 14px; color:#EAF0FB;
+  font-size:13px; font-family:'Inter',sans-serif; outline:none;
+}
+#chat-input:focus{border-color:rgba(20,199,180,0.5);}
+#chat-input::placeholder{color:#4A5A80;}
+#chat-send{
+  width:36px; height:36px; border-radius:50%;
+  background:linear-gradient(135deg,#3457E8,#14C7B4);
+  border:none; color:#fff; font-size:16px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:transform 0.15s;
+}
+#chat-send:hover{transform:scale(1.08);}
+</style>
+
+<script>
+const AIMAN_BRIEF = `You are an AI assistant representing Ahmad Nur Aiman, a Financial Fraud Analyst based in Kuala Lumpur, Malaysia. Answer questions about him as if you are his personal assistant — knowledgeable, honest, and professional but also casual and approachable. Respond in the same language the user uses: English or Bahasa Malaysia (or mix, known as Manglish). Keep answers concise — 2-4 sentences usually enough unless more detail is asked.
+
+BACKGROUND:
+- Name: Ahmad Nur Aiman (friends call him Aiman)
+- Role: Financial Fraud Analyst at Deriv Services Sdn Bhd, Kuala Lumpur (January 2025 – present)
+- Education: B.Sc. (Hons) Biotechnology (Environmental Biology), IIUM, 2019
+- Total work experience: ~4 years across risk, fraud, content moderation, and fintech
+
+WORK HISTORY:
+1. Deriv Services Sdn Bhd — Financial Fraud Analyst (Jan 2025 – present)
+   - Daily crypto monitoring: detect groups of abusers, highlight TnC gaps and system bugs to stakeholders, calculate total fees for abuser groups
+   - Assist in manual review before withdrawal requests
+   - Chargeback cases: 2-3 new cases weekly, close 10 tickets daily
+   - Led crypto fraud prevention framework for CryptoExchanger platform launch: 15-slide awareness deck, 22-scenario defensive workshop (Rumsfeld Matrix tagged), Mermaid.js investigation flowcharts
+   - Delivered investigation training and HOD-level briefing on crypto fraud typologies
+   - Built business case for AMY-NORA: proposed multi-agent AI system to automate fraud investigation across Payops, Payments, CX, Task Force
+   - AML/CTF investigations, transaction monitoring, KYC/Enhanced Due Diligence
+
+2. Centific — Risk Data Analyst for Microsoft HIT project (Feb 2022 – April 2024)
+   - Monthly KPI: minimum 1,500 cases reviewed
+   - Quality targets: False Positive rate ≤1%, False Negative rate ≤10%
+   - Focused on data quality and risk assessment for AI training datasets
+
+3. Centific — Content Moderator & QA for ByteDance AI project (Oct–Dec 2024, 3 months)
+   - Daily review: 800–1,000 cases
+   - QA role: check errors in hit rules, provide weekly quality reports to project manager
+   - Review new hit rules and delegate to team
+   - Track and action plan when member quality drops
+
+SKILLS:
+- Fraud & Compliance: AML/CTF, transaction monitoring, KYC/EDD, chargeback management, crypto fraud detection, Rumsfeld Matrix
+- Technical (learning): Python, SQL, GitHub, Next.js, Supabase, Docker, Nginx
+- Tools: Mermaid.js, AI-assisted (vibe coding) workflows
+
+PROJECTS:
+1. Nur Huda — Full-stack Quran learning centre platform (ongoing, Next.js 14 + Supabase, black/white/emerald design with mihrab arch motifs, QR code generation, admin dashboard)
+2. Credit Card Fraud Detection — Kaggle Python/ML project (planned, not yet started)
+3. JURUS Level 1 Analyst Programme (rawSEC) — completed cybersecurity challenge: Ubuntu server, Nextcloud on Docker, PostgreSQL, Nginx, UFW/Fail2Ban, automated backups. Did not pass demo due to VirtualBox network instability on demo day; revision in progress.
+
+CERTIFICATIONS (all planned):
+- Chainalysis Cryptocurrency Investigator (CCI)
+- CAMS (Certified Anti-Money Laundering Specialist)
+- CFE (Certified Fraud Examiner)
+
+PERSONALITY / WHY HIRE AIMAN:
+- Loves catching fraud and anomalies in data — it's not just a job, it's genuinely what drives him
+- Proactive: doesn't just find fraud, he identifies gaps in the fraud system and proposes solutions
+- Builder mindset: builds frameworks, automation tools, AI workflows to improve investigation quality
+- Currently leveling up in Python, AI automation, and crypto fraud — forward-looking analyst
+- Bilingual: Malay (native), English (professional)
+
+If asked something not covered here, say you'll pass the question to Aiman directly and suggest contacting him at amdnuraiman@gmail.com. Do not make up information. Be honest if something is still in progress or planned.`;
+
+function toggleChat(){
+  const win = document.getElementById('chat-window');
+  win.classList.toggle('open');
+  if(win.classList.contains('open')) document.getElementById('chat-input').focus();
+}
+
+function quickAsk(text){
+  document.getElementById('chat-input').value = text;
+  sendMsg();
+}
+
+async function sendMsg(){
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if(!text) return;
+  input.value = '';
+
+  addMsg(text, 'user');
+
+  const typing = addMsg('Typing...', 'bot', true);
+
+  const history = getChatHistory();
+
+  try{
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-6',
+        max_tokens:1000,
+        system: AIMAN_BRIEF,
+        messages: history
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || "Sorry, something went wrong. Try again!";
+    typing.remove();
+    addMsg(reply, 'bot');
+    storeMsg(text, 'user');
+    storeMsg(reply, 'assistant');
+  } catch(e){
+    typing.remove();
+    addMsg("Hmm, connection issue. Try again in a sec!", 'bot');
+  }
+}
+
+let msgHistory = [];
+
+function storeMsg(content, role){
+  msgHistory.push({role, content});
+  if(msgHistory.length > 20) msgHistory = msgHistory.slice(-20);
+}
+
+function getChatHistory(){
+  const input = document.getElementById('chat-input');
+  return [...msgHistory, {role:'user', content: input.value || msgHistory[msgHistory.length-1]?.content || ''}];
+}
+
+function addMsg(text, who, isTyping=false){
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg msg-' + who + (isTyping ? ' msg-typing' : '');
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.innerHTML = text.replace(/\n/g,'<br>');
+  div.appendChild(bubble);
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return div;
+}
+
+async function sendMsg(){
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if(!text) return;
+  input.value = '';
+
+  addMsg(text, 'user');
+  storeMsg(text, 'user');
+
+  const typing = document.createElement('div');
+  typing.className = 'msg msg-bot msg-typing';
+  typing.innerHTML = '<div class="msg-bubble">Thinking...</div>';
+  document.getElementById('chat-messages').appendChild(typing);
+  document.getElementById('chat-messages').scrollTop = 99999;
+
+  try{
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-6',
+        max_tokens:400,
+        system: AIMAN_BRIEF,
+        messages: msgHistory
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || "Sorry, couldn't get a response. Try again!";
+    typing.remove();
+    addMsg(reply, 'bot');
+    storeMsg(reply, 'assistant');
+  } catch(e){
+    typing.remove();
+    addMsg("Connection issue — try again in a sec!", 'bot');
+  }
+}
+</script>
+
 </body>
 </html>
