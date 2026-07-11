@@ -469,6 +469,8 @@ PERSONALITY / WHY HIRE AIMAN:
 
 If asked something not covered here, say you'll pass the question to Aiman directly and suggest contacting him at amdnuraiman@gmail.com. Do not make up information. Be honest if something is still in progress or planned.`;
 
+const WORKER_URL = 'https://ask-aiman-proxy.amdnuraiman.workers.dev/';
+
 function toggleChat(){
   const win = document.getElementById('chat-window');
   win.classList.toggle('open');
@@ -480,51 +482,11 @@ function quickAsk(text){
   sendMsg();
 }
 
-async function sendMsg(){
-  const input = document.getElementById('chat-input');
-  const text = input.value.trim();
-  if(!text) return;
-  input.value = '';
-
-  addMsg(text, 'user');
-
-  const typing = addMsg('Typing...', 'bot', true);
-
-  const history = getChatHistory();
-
-  try{
-    const res = await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({
-        model:'claude-sonnet-4-6',
-        max_tokens:1000,
-        system: AIMAN_BRIEF,
-        messages: history
-      })
-    });
-    const data = await res.json();
-    const reply = data.content?.[0]?.text || "Sorry, something went wrong. Try again!";
-    typing.remove();
-    addMsg(reply, 'bot');
-    storeMsg(text, 'user');
-    storeMsg(reply, 'assistant');
-  } catch(e){
-    typing.remove();
-    addMsg("Hmm, connection issue. Try again in a sec!", 'bot');
-  }
-}
-
 let msgHistory = [];
 
 function storeMsg(content, role){
   msgHistory.push({role, content});
   if(msgHistory.length > 20) msgHistory = msgHistory.slice(-20);
-}
-
-function getChatHistory(){
-  const input = document.getElementById('chat-input');
-  return [...msgHistory, {role:'user', content: input.value || msgHistory[msgHistory.length-1]?.content || ''}];
 }
 
 function addMsg(text, who, isTyping=false){
@@ -556,18 +518,16 @@ async function sendMsg(){
   document.getElementById('chat-messages').scrollTop = 99999;
 
   try{
-    const res = await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
+    const res = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model:'claude-sonnet-4-6',
-        max_tokens:400,
-        system: AIMAN_BRIEF,
+        systemPrompt: AIMAN_BRIEF,
         messages: msgHistory
       })
     });
     const data = await res.json();
-    const reply = data.content?.[0]?.text || "Sorry, couldn't get a response. Try again!";
+    const reply = data.reply || "Sorry, couldn't get a response. Try again!";
     typing.remove();
     addMsg(reply, 'bot');
     storeMsg(reply, 'assistant');
